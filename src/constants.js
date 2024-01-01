@@ -16,3 +16,9 @@ export const WEIGHTS = {
   medium: 600,
   bold: 800,
 };
+
+export const VIEWPORT = {
+	laptop: '81.25rem',
+	tablet: '59.375rem',
+	phone: '37.5rem'
+}
