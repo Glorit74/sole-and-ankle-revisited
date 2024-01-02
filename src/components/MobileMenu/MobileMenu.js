@@ -6,7 +6,7 @@ import { DialogOverlay, DialogContent } from "@reach/dialog";
 import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon";
 import VisuallyHidden from "../VisuallyHidden";
-import { COLORS, WEIGHTS } from "../../constants";
+import { COLORS, VIEWPORT, WEIGHTS } from "../../constants";
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   if (!isOpen) {
@@ -15,12 +15,11 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 
   return (
     <Placer>
+      <Shadow></Shadow>
       <Wrapper>
         <CloseButton>
           <VisuallyHidden>Close</VisuallyHidden>
-          <Icon id="close" onClick={onDismiss}>
-            Dismiss menu
-          </Icon>
+          <Icon id="close" onClick={onDismiss}></Icon>
         </CloseButton>
         <Nav>
           <Link href="/sale">Sale</Link>
@@ -42,23 +41,34 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 
 const Placer = styled.div`
   position: fixed;
+  display: flex;
   top: 0;
   right: 0;
+  left: 0;
+  bottom: 0;
   z-index: 2;
+`;
+
+const Shadow = styled.div`
+  background-color: black;
+  opacity: 0.6;
+  flex: 1;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
   width: 300px;
-  height: 100vh;
   background-color: ${COLORS.white};
-  padding: 26px 16px 32px 32px;
+  padding: 10px 0px 32px 32px;
 `;
 
-const CloseButton = styled.div`
+const CloseButton = styled(UnstyledButton)`
   align-self: flex-end;
+  /*bigger touching size for finger*/
+  padding: 16px;
 `;
 
 const Nav = styled.nav`
