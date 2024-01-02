@@ -1,11 +1,12 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import Header from '../Header';
-import ShoeIndex from '../ShoeIndex';
+import Header from "../Header";
+import ShoeIndex from "../ShoeIndex";
+import { VIEWPORT } from "../../constants";
 
 const App = () => {
-  const [sortId, setSortId] = React.useState('newest');
+  const [sortId, setSortId] = React.useState("newest");
 
   return (
     <>
@@ -19,9 +20,12 @@ const App = () => {
 
 const Main = styled.main`
   padding: 64px 32px;
-  @media (max-width: 37.5rem) {
-	  padding: 48px 12px;
-    
+  @media (max-width: ${VIEWPORT.tablet}) {
+    padding: 48px 32px;
+  }
+
+  @media (max-width: ${VIEWPORT.phone}) {
+    padding: 48px 12px;
   }
 `;
 
