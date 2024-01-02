@@ -8,6 +8,7 @@ import MobileMenu from "../MobileMenu";
 import Icon from "../Icon";
 import UnstyledButton from "../UnstyledButton";
 import VisuallyHidden from "../VisuallyHidden";
+import MobileMenuByJosh from "../MobileMenu/MobileMenuByJosh";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -48,7 +49,11 @@ const Header = () => {
         </SmallNav>
       </MainHeader>
 
-      <MobileMenu
+      {/* <MobileMenu
+        isOpen={showMobileMenu}
+        onDismiss={() => setShowMobileMenu(false)}
+      /> */}
+      <MobileMenuByJosh
         isOpen={showMobileMenu}
         onDismiss={() => setShowMobileMenu(false)}
       />
@@ -62,12 +67,11 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
-  
+
   @media (max-width: ${VIEWPORT.laptop}) {
-	  border-top: 4px solid ${COLORS.gray[900]};
-	  justify-content: space-between;
-	  align-items: center;
-	
+    border-top: 4px solid ${COLORS.gray[900]};
+    justify-content: space-between;
+    align-items: center;
   }
 
   @media (max-width: ${VIEWPORT.tablet}) {
@@ -81,7 +85,7 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 9vw - 4rem, 3.5rem);
   /* margin: 0px 48px; */
   margin-right: auto;
   margin-left: 48px;
